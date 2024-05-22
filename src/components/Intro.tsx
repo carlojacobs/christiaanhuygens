@@ -48,7 +48,7 @@ export function Intro() {
           <Logo className="inline-block h-8 w-auto" />
         </Link>
       </div>
-      <h1 className="mt-14 font-display text-2xl/tight font-light text-gray-900">
+      <h1 className="mt-14 font-display text-2xl/tight font-light text-gray-200">
         Het Medisch-Natuurphilosiphisch en Veterinair-Tandheelkunding Gezelschap{' '}
         <span className="text-sky-300">&quot;Christiaan Huygens&quot;</span>
       </h1>
