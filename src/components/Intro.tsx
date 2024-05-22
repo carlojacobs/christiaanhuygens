@@ -4,7 +4,7 @@ import { IconLink } from '@/components/IconLink'
 import { Logo } from '@/components/Logo'
 import { SignUpForm } from '@/components/SignUpForm'
 
-import { EncryptedText } from '@/app/encrypt'
+// import { EncryptedText } from '@/app/encrypt'
 
 function BookIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
