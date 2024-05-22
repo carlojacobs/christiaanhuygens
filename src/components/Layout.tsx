@@ -129,7 +129,7 @@ export async function Layout({ children }: { children: React.ReactNode }) {
               <Article key={item._id} id={item.title} date={item.date}>
                 <h2>{item.title}</h2>
                 <p>
-                  {item.body.split('\n').map((line, index) => (
+                  {item.body.split('\n').map((line: string, index: number) => (
                     <React.Fragment key={index}>
                       {line}
                       <br />
