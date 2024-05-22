@@ -7,6 +7,9 @@ import { Providers } from '@/app/providers'
 
 import '@/styles/tailwind.css'
 
+// Encryption
+// import { EncryptionProvider } from './encrypt'
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -43,7 +46,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-white dark:bg-gray-950">
-        <Providers>{children}</Providers>
+        {/* <EncryptionProvider trialKeyword="DEFAULTKEYsafd">
+          <Providers>{children}</Providers>
+        </EncryptionProvider> */}
+          <Providers>{children}</Providers>
       </body>
     </html>
   )
