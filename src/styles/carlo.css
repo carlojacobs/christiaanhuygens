@@ -1,0 +1,8 @@
+.chbackground {
+    background-image: url('../images/Christiaan\ Huygens\ Wapen.png') !important;
+    background-size: contain !important; /* or use 'cover' if you want it to fill the area */
+    background-position: top center !important; /* centers the image */
+    background-repeat: no-repeat !important; /* ensures the image does not repeat */
+    background-color: beige !important; /* To override any background color */;
+}
+  
