@@ -50,3 +50,46 @@ export const vergaderingQuery = groq`*[_type == "vergadering" && number == $numb
 export const vergaderingNumbersQuery = groq`*[_type == "vergadering" && defined(number)][]{
     "params": { "number": number }
   }`;
+
+// Announcements
+
+export const announcementsQuery = groq`*[_type == "announcement"] | order(date desc) {
+    _createdAt,
+    title,
+    date,
+    body
+  }`;
+
+  export const announcementQuery = groq`*[_type == "announcement" && title == $title][0]{ 
+    title,
+    date,
+    body
+  }`;
+
+  export const announcementTitlesQuery = groq`*[_type == "announcement" && defined(title)][]{
+    "params": { "title": title }
+  }`;
+
+  export const combinedSortedQuery = groq`*[_type == "announcement" || _type == "vergadering"] | order(date desc) {
+    _createdAt,
+    _type,
+    ...select(
+      _type == "announcement" => {
+        title,
+        date,
+        body
+      },
+      _type == "vergadering" => {
+        number,
+        date,
+        location,
+        lecturer,
+        "invitationUrl": invitation.asset->url,
+        lecture {
+          title,
+          "fileUrl": file.asset->url
+        }
+      }
+    )
+  }`;
+  

@@ -1,8 +1,6 @@
 .chbackground {
-    /* background-image: url('../images/Christiaan\ Huygens\ Wapen.png') !important;
-    background-size: contain !important;
-    background-position: top center !important;
-    background-repeat: no-repeat !important;
-    background-color: beige !important; */
+    background-image: url('../images/background4.svg');
+    background-repeat: repeat;
+    background-color: #F9CD76;
 }
   

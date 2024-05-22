@@ -1,0 +1,11 @@
+<!-- sophisticated-background.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <pattern id="diamondPattern" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="rotate(0)">
+      <rect width="40" height="40" fill="lightblue" /> <!-- Background color -->
+      <image href="./logo.svg" x="0" y="0" width="20" height="20" />
+      <image href="./logo.svg" x="20" y="20" width="20" height="20" />
+    </pattern>
+  </defs>
+  <rect width="40" height="40" fill="url(#diamondPattern)" />
+</svg>

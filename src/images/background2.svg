@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <pattern id="complexPattern" patternUnits="userSpaceOnUse" width="500" height="500">
+      <!-- Background color -->
+      <rect width="500" height="500" fill="lightblue" />
+
+      <!-- Larger logos in the corners -->
+      <image href="./logo.svg" x="-125" y="-125" width="250" height="250" />
+      <image href="./logo.svg" x="375" y="-125" width="250" height="250" />
+      <image href="./logo.svg" x="-125" y="375" width="250" height="250" />
+      <image href="./logo.svg" x="375" y="375" width="250" height="250" />
+
+      <!-- Smaller logo in the center -->
+      <image href="./logo.svg" x="125" y="125" width="250" height="250" />
+    </pattern>
+  </defs>
+  <rect width="500" height="500" fill="url(#complexPattern)" />
+</svg>

@@ -42,20 +42,18 @@ function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function Intro() {
   return (
-    <>
-      <div>
+    <div className="bg-white rounded-lg p-5">
+      {/* <div>
         <Link href="/">
           <Logo className="inline-block h-8 w-auto" />
         </Link>
-      </div>
-      <h1 className="mt-14 font-display text-2xl/tight font-light text-gray-200">
+      </div> */}
+      <h1 className="mt-14 font-display text-2xl/tight font-light text-gray-900">
         Het Medisch-Natuurphilosiphisch en Veterinair-Tandheelkunding Gezelschap{' '}
-        <span className="text-sky-300">&quot;Christiaan Huygens&quot;</span>
+        <span>&quot;Christiaan Huygens&quot;</span>
       </h1>
-      <p className="mt-4 text-sm/6 text-gray-300">
-        Commit is a lightweight Git client you can open from anywhere any time
-        you’re ready to commit your work with a single keyboard shortcut. It’s
-        fast, beautiful, and completely unnecessary.
+      <p className="mt-4 text-sm/6 text-gray-900">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, explicabo doloremque reiciendis voluptates minima quidem dolorum impedit eius architecto delectus quam aut perferendis nostrum illo sint nobis, vel voluptatum tenetur.
       </p>
       <SignUpForm />
       <div className="mt-8 flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
@@ -69,7 +67,7 @@ export function Intro() {
           RSS
         </IconLink>
       </div>
-    </>
+    </div>
   )
 }
 

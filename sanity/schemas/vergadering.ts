@@ -1,8 +1,5 @@
 import { defineField, defineType } from 'sanity';
 
-import lecturer from './lecturer';
-import lecture from './lecture';
-
 export default defineType({
   name: 'vergadering',
   title: 'Vergadering',

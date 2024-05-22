@@ -9,7 +9,7 @@ export default {
         '2xs': '.6875rem',
       },
       fontFamily: {
-        sans: ['Playfair', 'sans-serif'],
+        sans: ['Playfair', 'serif'],
         display: ['Playfair', 'serif'],
       },
       opacity: {

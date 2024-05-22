@@ -1,0 +1,18 @@
+<svg width="360" height="360" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-height: 500px">
+  <!-- Larger shield split across corners -->
+  <!-- Bottom-right corner of the larger shield placed at the top-left of the unit -->
+  <image href="./logo.svg" width="200" height="200" x="-100" y="-100" />
+  <!-- Top-left corner of the larger shield placed at the bottom-right of the unit -->
+  <image href="./logo.svg" width="200" height="200" x="100" y="100" />
+  
+  <!-- Bottom-left corner of the larger shield placed at the top-right of the unit -->
+  <image href="./logo.svg" width="200" height="200" x="-100" y="100" />
+  <!-- Top-right corner of the larger shield placed at the bottom-left of the unit -->
+  <image href="./logo.svg" width="200" height="200" x="100" y="-100" />
+  
+  <!-- Smaller central shield -->
+  <image href="./logo.svg" width="100" height="100" x="50" y="50" />
+
+  <!-- Ensure the logo.svg file has the shield graphic defined with id="shield" -->
+</svg>
+<!-- xmlns="http://www.w3.org/2000/svg" viewBox="217.48313827683614 110.00696 363.2192618644068 365.94152" id="svg2" version="1.1" style="max-height: 500px" width="363.2192618644068" height="365.94152" -->

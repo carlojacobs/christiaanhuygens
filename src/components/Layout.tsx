@@ -1,3 +1,4 @@
+import React from 'react'
 import { useId } from 'react'
 
 import { Intro, IntroFooter } from '@/components/Intro'
@@ -6,7 +7,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 
 // Sanity imports
 import { sanityFetch } from '../../sanity/lib/fetch';
-import { vergaderingenQuery } from '../../sanity/lib/queries';
+import { vergaderingenQuery, combinedSortedQuery } from '../../sanity/lib/queries';
 import { SanityDocument } from 'next-sanity';
 
 import { article as Article} from '@/components/mdx'
@@ -83,7 +84,7 @@ function FixedSidebar({
 }) {
   return (
     <div className="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
-      <Glow />
+      {/* <Glow /> */}
       <div className="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(50%-38rem))] chbackground">
         <div className="mx-auto max-w-lg lg:mx-0 lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
           <div className="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
@@ -102,8 +103,11 @@ function FixedSidebar({
 }
 
 export async function Layout({ children }: { children: React.ReactNode }) {
-  let vergaderingen = await sanityFetch<SanityDocument[]>({query: vergaderingenQuery});
-  console.log(vergaderingen);
+  // const vergaderingen = await sanityFetch<SanityDocument[]>({query: vergaderingenQuery});
+  // const announcements = await sanityFetch<SanityDocument[]>({query: announcementsQuery});
+
+  const items = await sanityFetch<SanityDocument[]>({query: combinedSortedQuery});
+  console.log(items);
 
   return (
     <>
@@ -112,13 +116,27 @@ export async function Layout({ children }: { children: React.ReactNode }) {
       <div className="relative flex-auto">
         <Timeline />
         <main className="space-y-20 py-20 sm:space-y-32 sm:py-32">
-          {vergaderingen.map((vergadering) => (
-            <Article key={vergadering._id} id={vergadering.number} date={vergadering.date}>
-              <h2>De {vergadering.number}ste Vergadering...</h2>
-              <p>...van het <i>Medisch-Natuurfilosofisch en Veterinair-Tandheelkundig Gezelschap &quot;Christiaan Huygens&quot;</i> gehouden op <b>{new Date(vergadering.date).toLocaleDateString('nl', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</b> in de <b>{vergadering.location}</b>.</p>
-              <p>Tijdens de vergadering is door <b>het {vergadering.lecturer.name}</b> een {vergadering.lecturer.type === "lector" ? 'lezing' : 'memorisatie'} gegeven getiteld <a href={vergadering.lecture.fileUrl}>&quot;{vergadering.lecture.title}&quot;</a>.</p>
-              <p>De uitnodiging van deze vergadering is <a className="hover:cursor-pointer" href={vergadering.invitationUrl}>hier</a> te vinden.</p>
+          {items.map((item) => (
+            item.number ? (
+            <Article key={item._id} id={item.number} date={item.date}>
+              <h2>De {item.number}ste Vergadering...</h2>
+              <p>...van het <i>Medisch-Natuurfilosofisch en Veterinair-Tandheelkundig Gezelschap &quot;Christiaan Huygens&quot;</i> gehouden op <b>{new Date(item.date).toLocaleDateString('nl', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</b> in de <b>{item.location}</b>.</p>
+              <p>Tijdens de vergadering is door <b>het {item.lecturer.name}</b> een {item.lecturer.type === "lector" ? 'lezing' : 'memorisatie'} gegeven getiteld <a href={item.lecture.fileUrl}>&quot;{item.lecture.title}&quot;</a>.</p>
+              <p>De uitnodiging van deze vergadering is <a className="hover:cursor-pointer" href={item.invitationUrl}>hier</a> te vinden.</p>
             </Article>
+            ) : (
+              <Article key={item._id} id={item.title} date={item.date}>
+                <h2>{item.title}</h2>
+                <p>
+                  {item.body.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+              </Article>
+            )
           ))}
         </main>
       </div>
